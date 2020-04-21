@@ -4,9 +4,9 @@
 
 <nav>
   <ul>
-    <li><a class:selected="{segment === undefined}" href=".">Shop</a></li>
-    <li><a class:selected='{segment === "cart"}' href="cart">Cart</a></li>
-    <li><a class:selected='{segment === "ship"}' href="ship">Ship</a></li>
+    <li><a aria-current={segment === undefined ? 'page' : undefined} href=".">Shop</a></li>
+    <li><a aria-current={segment === "cart" ? 'page' : undefined} href="cart">Cart</a></li>
+    <li><a aria-current={segment === "ship" ? 'page' : undefined} href="ship">Ship</a></li>
   </ul>
 </nav>
 
@@ -34,12 +34,12 @@
     float: left;
   }
 
-  .selected {
+  [aria-current] {
     position: relative;
     display: inline-block;
   }
 
-  .selected::after {
+  [aria-current]::after {
     position: absolute;
     content: '';
     width: calc(100% - 1em);
